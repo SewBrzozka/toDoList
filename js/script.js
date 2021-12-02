@@ -18,20 +18,54 @@
         render();
     };
 
+    const removeTask = (index) => {
+        tasks.splice(index, 1);
+        render();
+    };
+
+    const toggleTaskDone = (index) => {
+        tasks[index].done = !tasks[index].done;
+        render();
+    };
+
+    const bindEvents = () => {
+        const toggleDoneButton = document.querySelectorAll(".js-done");
+
+        toggleDoneButton.forEach((toggleDoneButton, index) => {
+            toggleDoneButton.addEventListener("click", () => {
+                toggleTaskDone(index);
+            });
+        });
+
+        const removeButtons = document.querySelectorAll(".js-remove");
+
+        removeButtons.forEach((removeButtons, index) => {
+            removeButtons.addEventListener("click", () => {
+                removeTask(index);
+            });
+        });
+    };
+
     const render = () => {
         let htmlString = "";
 
         for (const task of tasks) {
             htmlString += `
         <li>
+        <button class="js-done">
+        ${task.done ? "✓" : ""}
+        </button>
             <span>
                  ${task.content} 
             </span>
+        <button class="js-remove">🗑</button>
         </li>
         `
         };
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
+
+        bindEvents();
     };
 
     const onFormSubmit = (event) => {
