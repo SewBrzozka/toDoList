@@ -10,25 +10,50 @@
         },
     ];
 
-const render = () => {
-    let htmlString = "";
+    const addNewTask = (newTaskContent) => {
+        tasks.push({
+            content: newTaskContent,
+        });
 
-    for (const task of tasks) {
-        htmlString += `
+        render();
+    };
+
+    const render = () => {
+        let htmlString = "";
+
+        for (const task of tasks) {
+            htmlString += `
         <li>
             <span>
                  ${task.content} 
             </span>
         </li>
         `
+        };
+
+        document.querySelector(".js-tasks").innerHTML = htmlString;
     };
 
-    document.querySelector(".js-tasks").innerHTML = htmlString;
-};
+    const onFormSubmit = (event) => {
+        event.preventDefault();
+
+        const newTaskContent = document.querySelector(".js-newTask").value.trim();
+
+        if (newTaskContent === "") {
+            document.querySelector(".js-newTask").focus();
+            return;
+        };
+
+        addNewTask(newTaskContent);
+    };
 
     const init = () => {
         render();
+
+        const form = document.querySelector(".js-form");
+
+        form.addEventListener("submit",onFormSubmit);
     };
-    
+
     init();
 }
