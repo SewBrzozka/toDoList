@@ -17,3 +17,7 @@ body {
     max-width: 800px;
     margin: 0 auto;
 }
+
+.container__header {
+    margin: 0px 20px;
+}
