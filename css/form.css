@@ -32,3 +32,10 @@
     align-self: center;
     margin: 20px;
 }
+
+@media  (max-width: 767px) {
+    .form__button {
+        width: 100%;
+        margin-top: 0px;
+    }
+}

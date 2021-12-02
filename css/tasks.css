@@ -32,3 +32,15 @@
 .task__button--remove {
     background-color: red;
 }
+
+@media  (max-width: 767px) {
+    .task__button {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+    .task__text {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
