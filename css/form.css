@@ -4,14 +4,6 @@
     flex-wrap: wrap;
 }
 
-.form__header {
-    align-self: flex-start;
-    flex-basis: 100%;
-    border-bottom: 1px solid #eee;
-    padding: 20px;
-    margin: 0px; 
-} 
-
 .form__input {
     align-self: flex-start;
     flex-grow: 2;
