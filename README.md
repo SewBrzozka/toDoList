@@ -5,7 +5,7 @@ https://sewbrzozka.github.io/toDoList/
 
 ![Visualisation, How it works](/images/toDoList2.gif)
 
-## What action we can do?
+## Action:
 - add new task
 - remove task
 - check off task that has been completed
