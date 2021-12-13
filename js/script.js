@@ -1,5 +1,5 @@
 {
-    const tasks = [
+    let tasks = [
         {
             content: "wizyta u okulisty",
             done: false,
@@ -11,20 +11,28 @@
     ];
 
     const addNewTask = (newTaskContent) => {
-        tasks.push({
-            content: newTaskContent,
-        });
+        tasks = [
+            ...tasks,
+            { content: newTaskContent, },
+        ];
 
         render();
     };
 
     const removeTask = (index) => {
-        tasks.splice(index, 1);
+        tasks = [
+            ...tasks.slice(0, index),
+            ...tasks.slice(index + 1),
+        ];
         render();
     };
 
     const toggleTaskDone = (index) => {
-        tasks[index].done = !tasks[index].done;
+        tasks = [
+            ...tasks.slice(0, index),
+            { ...tasks[index], done: !tasks[index].done },
+            ...tasks.slice(index + 1),
+        ];
         render();
     };
 
@@ -52,13 +60,19 @@
         for (const task of tasks) {
             htmlString += `
         <li  class="task">
-        <button class="task__button task__button--done js-done">
-        ${task.done ? "✓" : ""}
-        </button>
+            
+            <button class="task__button task__button--done js-done">
+                ${task.done ? "✓" : ""}
+            </button>
+                
             <span class="task__text${task.done ? " task__text--done" : ""}">
-                 ${task.content} 
+                     ${task.content} 
             </span>
-        <button class="task__button task__button--remove js-remove">🗑</button>
+
+            <button class="task__button task__button--remove js-remove">
+                🗑
+            </button>
+
         </li>
         `
         };
@@ -81,6 +95,7 @@
         addNewTask(newTaskContent);
 
         document.querySelector(".js-newTask").value = "";
+    
     };
 
     const init = () => {
