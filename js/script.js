@@ -57,7 +57,7 @@
 
         for (const task of tasks) {
             htmlString += `
-        <li  class="task">
+        <li  class="task${task.done && hideDoneTasks ? " task__hidden" : ""} js-newTask">
             
             <button class="task__button task__button--done js-done">
                 ${task.done ? "✓" : ""}
