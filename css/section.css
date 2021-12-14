@@ -7,9 +7,20 @@
 }
 
 .section__header {
-    align-self: flex-start;
-    flex-basis: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
     border-bottom: 1px solid #eee;
     padding: 20px;
     margin: 0px; 
 } 
+
+@media (max-width: 767px) {
+    .section__header {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }    
+}
+
+.section__title {
+    margin: 0;
+}
