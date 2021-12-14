@@ -1,21 +1,12 @@
 {
-    let tasks = [
-        {
-            content: "wizyta u okulisty",
-            done: false,
-        },
-        {
-            content: "trening",
-            done: true,
-        },
-    ];
+    let tasks = [];
+    let hideDoneTasks = false;
 
     const addNewTask = (newTaskContent) => {
         tasks = [
             ...tasks,
             { content: newTaskContent, },
         ];
-
         render();
     };
 
@@ -36,7 +27,12 @@
         render();
     };
 
-    const bindEvents = () => {
+    const toggleHideDoneTasks = () => {
+        hideDoneTasks = !hideDoneTasks;
+        render();
+    }
+
+    const bindToggleDoneEvents = () => {
         const toggleDoneButton = document.querySelectorAll(".js-done");
 
         toggleDoneButton.forEach((toggleDoneButton, index) => {
@@ -44,7 +40,9 @@
                 toggleTaskDone(index);
             });
         });
+    };
 
+    const bindRemoveEvents = () => {
         const removeButtons = document.querySelectorAll(".js-remove");
 
         removeButtons.forEach((removeButtons, index) => {
@@ -79,23 +77,22 @@
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
 
-        bindEvents();
+        bindRemoveEvents();
+        bindToggleDoneEvents();
     };
 
     const onFormSubmit = (event) => {
         event.preventDefault();
 
-        const newTaskContent = document.querySelector(".js-newTask").value.trim();
+        const newTaskElement = document.querySelector(".js-newTask");
+        const newTaskContent = newTaskElement.value.trim();
 
-        if (newTaskContent === "") {
-            document.querySelector(".js-newTask").focus();
-            return;
+        if (newTaskContent !== "") {
+            addNewTask(newTaskContent);
+            newTaskElement.value = "";
         };
 
-        addNewTask(newTaskContent);
-
-        document.querySelector(".js-newTask").value = "";
-    
+        newTaskElement.focus();    
     };
 
     const init = () => {
