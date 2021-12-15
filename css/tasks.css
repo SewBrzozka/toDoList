@@ -12,7 +12,7 @@
 }
 
 .task__text {
-    padding-left: 20px;
+    padding: 0 20px;
     flex-grow: 1;
     word-break: break-word;
 }
@@ -26,20 +26,38 @@
     width: 30px;
     height: 30px;
     border: none;
+    transition: transform 0.3s;
+    flex-shrink: 0;
 }
 
 .task__button--done {
     background-color: green;
 }
 
+.task__button--done:hover {
+    background-color: hsl(120, 100%, 30%);
+    transform: scale(1.1);
+}
+
+.task__button--done:active {
+    background-color: hsl(120, 100%, 35%);
+}
+
 .task__button--remove {
     background-color: red;
 }
 
+.task__button--remove:hover {
+    background-color: hsl(0, 100%, 55%);
+    transform: scale(1.1);
+}
+
+.task__button--remove:active {
+    background-color: hsl(0, 100%, 60%);
+}
+
 @media  (max-width: 767px) {
     .task__button {
-        width: 20px;
-        height: 20px;
         flex-shrink: 0;
     }
     .task__text {
