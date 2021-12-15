@@ -6,7 +6,7 @@
 @media (max-width: 767px) {
     .buttons {
         grid-template-columns: 1fr;
-        gap: 10px;
+
     }    
 }
 

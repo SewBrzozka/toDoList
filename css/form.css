@@ -8,7 +8,7 @@
     align-self: flex-start;
     flex-grow: 2;
     padding: 10px;
-    margin: 20px;
+    margin: 16px;
     border: 1px solid #eee;
 } 
 
@@ -22,7 +22,7 @@
     border: none;
     padding: 10px;
     align-self: center;
-    margin: 20px;
+    margin: 10px 10px 10px 0px;
     transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -30,6 +30,7 @@
     .form__button {
         flex-basis: 100%;
         margin-top: 0px;
+        margin: 0px 16px 16px 16px;
     }
 }
 
