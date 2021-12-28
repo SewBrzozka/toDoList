@@ -50,8 +50,3 @@
 .form__button:active {
     background-color: hsl(180, 100%, 35%);
 }
-
-.form__item {
-    padding: 0 15px 15px;
-    margin: 0;
-}

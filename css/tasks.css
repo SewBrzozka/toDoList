@@ -1,5 +1,9 @@
-
 .task {
+        padding: 0 15px 15px;
+        margin: 0;
+}
+
+.task__item {
     list-style: none;
     border-bottom: 1px solid #eee;
     padding: 10px;
