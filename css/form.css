@@ -22,6 +22,7 @@
     border: none;
     padding: 10px;
     align-self: center;
+    cursor: pointer;
     margin: 10px 10px 10px 0px;
     transition: background-color 0.3s, transform 0.3s;
 }
@@ -51,6 +52,6 @@
 }
 
 .form__item {
-    padding: 0 15px;
+    padding: 0 15px 15px;
     margin: 0;
 }

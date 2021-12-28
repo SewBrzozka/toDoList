@@ -23,8 +23,10 @@
 
 .task__button {
     color: white;
+    cursor: pointer;
     width: 30px;
     height: 30px;
+    padding: 0px;
     border: none;
     transition: transform 0.3s;
     flex-shrink: 0;
